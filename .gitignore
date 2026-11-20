@@ -1,0 +1,3 @@
+api/config.local.php
+api/uploads/products/*
+!api/uploads/products/.gitkeep

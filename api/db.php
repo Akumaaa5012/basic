@@ -1,10 +1,17 @@
 <?php
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "sproutroute";
-$port = 3306;
+// Defaults match a local WAMP/XAMPP install. On a server, put real values in
+// api/config.local.php (not committed) - see deploy/README.md.
+$config = [];
+if (is_file(__DIR__ . "/config.local.php")) {
+    $config = require __DIR__ . "/config.local.php";
+}
+
+$host = $config["host"] ?? "localhost";
+$username = $config["username"] ?? "root";
+$password = $config["password"] ?? "";
+$database = $config["database"] ?? "sproutroute";
+$port = (int) ($config["port"] ?? 3306);
 
 mysqli_report(MYSQLI_REPORT_OFF);
 
